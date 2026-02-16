@@ -7,6 +7,54 @@ print("You have only 6 lives so try to guess thhe word within 6 attemps! Good lu
 print(guessed_word)
 chance=6
 print(guessed_word)
+hangman_stages=[
+'''   +------+
+   |      |
+   O      |
+          |
+          |
+          |
+   ========''', 
+                
+'''   +------+
+   |      |
+   O      |
+   |      |
+          |
+          |
+   ========''',
+                
+'''   +------+
+   |      |
+   O      |
+  /|      |
+          |
+          |
+ ===========''',
+            
+'''   +------+
+   |      |
+   O      |
+  /|\     |
+          |
+          |
+ ==========''',
+                
+'''   +------+
+   |      |
+   O      |
+  /|\     |
+  /       |
+          |
+ ===========''',
+                
+'''   +------+
+   |      |
+   O      |
+  /|\     |
+  / \     |
+          |
+ ===========''']
 while True:
     if guessed_word==list(comp_word):
         
@@ -23,6 +71,7 @@ while True:
                     chance=chance-1
                     print(f"The letter is already guessed. You lose a chance. chances left are {chance}")
                     continue
+                
                 else:
                     for i, ch in enumerate(comp_word): 
                         if ch==letter:                 
@@ -31,7 +80,19 @@ while True:
             else:
                 chance=chance-1
                 print(f"You guessed it wrong. You lose a chance.\nChances left are {chance}") 
-
+                match chance:
+                    case 5:
+                        print(hangman_stages[0])
+                    case 4:
+                        print(hangman_stages[1])
+                    case 3:
+                        print(hangman_stages[2])
+                    case 2:
+                        print(hangman_stages[3])
+                    case 1:
+                        print(hangman_stages[4])
+                    case 0:
+                        print(hangman_stages[5])
 
 
         else:

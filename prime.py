@@ -1,16 +1,17 @@
+import math
 def prime(num):
     
     if num==1:
         print("1 is not a prime number")
     else:
         c=0
-        for i in range(2,num):
+        for i in range(2,math.ceil(num/2)):
 
             if num%i==0:
                 c+=1
     
         if c==0:
-            print(f"{num} is a prime number")
+            print(f"{num} is a prime number")    
         else:
             print(f"{num} is not a prime number")
 

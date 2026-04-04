@@ -26,12 +26,13 @@ scissors = """
 ---.__(___)
 """
 images=[rock,paper,scissors]
+choices=[0,1,2]
 
 user_choice=int(input("Enter your choice:(0-rock, 1-paper,2-scissors)"))
 if user_choice>2 or user_choice<0:
     print("Invalid choice! Please enter correctly!!")
 else:
-    computers_choice=random.randint(0,2)
+    computers_choice=random.choice(choices)
     print("you chose:")
     print(images[user_choice])
     
